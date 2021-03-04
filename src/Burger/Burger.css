@@ -1,0 +1,53 @@
+.burger-top{
+    width: 300px;
+    height: 50px;
+    background-color:  #e6be50;
+    border-radius: 5px;
+    margin-top: 50px;
+    position: relative;
+}
+
+.burger-top::after {
+    content: '';
+    width: 300px;
+    height: 30px;
+    background-color:  #e6be50;
+    position: absolute;
+    border-top-right-radius: 100%;
+    border-top-left-radius: 100%;
+    top: -23px;
+    }
+
+.burger-bot{
+    width: 300px;
+    height: 50px;
+    background-color:  #e6be50;
+    border-radius: 5px;
+   margin-top: 10px;
+
+}
+
+.salad{
+    width: 400px;
+    height: 5px;
+    background-color:  green;
+    border-radius: 5px;
+    margin-top: 10px;
+
+}
+.beef{
+    width: 300px;
+    height: 30px;
+    background-color:  rgb(68, 17, 17);
+    border-radius: 5px;
+    margin-top: 10px;
+ 
+}
+
+.cheese{
+    width: 350px;
+    height: 10px;
+    background-color:  rgba(206, 206, 7, 0.973);
+    border-radius: 5px;
+    margin-top: 10px;
+}
