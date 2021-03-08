@@ -55,6 +55,32 @@ export default class UserProfile extends Component {
     });
   };
 
+  handleSubmit = (event) => {
+    //Cản trình duyệt tải lại trang
+    event.preventDefault();
+    //Xéta điều kiện khi submit
+    let valid = true;
+    let {values, error} = this.state;
+    for (let key in values) {
+      if (values[key] === "") {
+        valid = false;
+      }
+    }
+
+    for (let key in error) {
+      if (error[key] !== "") {
+        valid = false;
+      }
+    }
+
+    if (!valid) {
+      alert("Dữ liệt không hợp lệ");
+      return;
+    }
+
+    alert("Success");
+  };
+
   render() {
     return (
       <div
@@ -76,8 +102,8 @@ export default class UserProfile extends Component {
                   <input
                     value={this.state.values.firstName}
                     type="text"
-                    required
                     name="firstName"
+                    required
                     onChange={this.handleChangeValue}
                   />
                   <span className="highlight" />
@@ -182,7 +208,11 @@ export default class UserProfile extends Component {
               </div>
             </div>
             <div className="col-12">
-              <button className="btn btn-success bg-dark w-100">Submit</button>
+              <button
+                className="btn btn-success bg-dark w-100"
+                onClick={this.handleSubmit}>
+                Submit
+              </button>
             </div>
           </div>
         </form>
