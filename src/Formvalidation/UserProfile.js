@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import "./UserProfile.css";
+import Swal from "sweetalert2";
 
 export default class UserProfile extends Component {
   state = {
@@ -59,26 +60,28 @@ export default class UserProfile extends Component {
     //Cản trình duyệt tải lại trang
     event.preventDefault();
     //Xéta điều kiện khi submit
+    let profileContent = "";
+    let errorContent = "";
     let valid = true;
     let {values, error} = this.state;
-    for (let key in values) {
-      if (values[key] === "") {
-        valid = false;
-      }
-    }
-
-    for (let key in error) {
-      if (error[key] !== "") {
-        valid = false;
-      }
-    }
 
     if (!valid) {
-      alert("Dữ liệt không hợp lệ");
+      Swal.fire({
+        title: "Errors",
+        html: errorContent,
+        icon: "error", //success error warning question
+        confirmButtonText: "Back",
+      });
       return;
     }
 
-    alert("Success");
+    // alert("Success");
+    Swal.fire({
+      title: "Your Profile",
+      html: profileContent,
+      icon: "success", //success error warning question
+      confirmButtonText: "Ok",
+    });
   };
 
   render() {
